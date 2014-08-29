@@ -30,9 +30,10 @@ def get_people(company_name, start_index, page):
     soup = BeautifulSoup(req.content)
     res = []
     for contact in soup.findAll('div', attrs={'class': 'span4 spanalpha ycardholder'}):
-        link_name = contact.find('a', attrs={})
-        print link_name.text
-        res.append(link_name.text)
+        contact_name = contact.find('a', attrs={})
+        contact_job = contact.find('div', attrs={'class': 'ytdmgl'})
+        res.append(contact_name.text)
+        print "%s (%s)" % (contact_name.text, contact_job.text[:-1])
     return res
 
 
