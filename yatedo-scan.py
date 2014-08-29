@@ -5,13 +5,13 @@ import sys
 import requests
 from bs4 import BeautifulSoup
 import re
-import unicodedata
+# import unicodedata
 
 people = []
 
 
-def remove_accents(data):
-    return ''.join((c for c in unicodedata.normalize('NFD', data.decode("utf8")) if unicodedata.category(c) != 'Mn'))
+# def remove_accents(data):
+#     return ''.join((c for c in unicodedata.normalize('NFD', data.decode("utf8")) if unicodedata.category(c) != 'Mn'))
 
 
 def get_number_of_results(company_name):
