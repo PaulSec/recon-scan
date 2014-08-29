@@ -5,8 +5,13 @@ import sys
 import requests
 from bs4 import BeautifulSoup
 import re
+import unicodedata
 
 people = []
+
+
+def remove_accents(data):
+    return ''.join((c for c in unicodedata.normalize('NFD', data.decode("utf8")) if unicodedata.category(c) != 'Mn'))
 
 
 def get_number_of_results(company_name):
@@ -23,14 +28,17 @@ def get_people(company_name, start_index, page):
     print url
     req = requests.get(url)
     soup = BeautifulSoup(req.content)
+    res = []
     for contact in soup.findAll('div', attrs={'class': 'span4 spanalpha ycardholder'}):
         link_name = contact.find('a', attrs={})
         print link_name.text
+        res.append(link_name.text)
+    return res
 
 
 def main():
     if len(sys.argv) < 2:
-        print '[!] Specify the company name'
+        print 'Usage: python yatedo-scan.py <company name>'
         sys.exit(-1)
 
     print 'Fetching result for company "%s"' % (sys.argv[1])
