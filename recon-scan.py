@@ -84,7 +84,7 @@ def main():
         VERBOSE_MODE = True
 
     if (options.person is None and options.company is None):
-        parser.error("Wrong number of arguments")
+        parser.print_help()
         sys.exit(-1)
 
     if (options.company is not None):
