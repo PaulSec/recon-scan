@@ -80,14 +80,14 @@ def main():
 
     (options, args) = parser.parse_args()
 
-    if (options.verbose):
+    if options.verbose:
         VERBOSE_MODE = True
 
-    if (options.person is None and options.company is None):
+    if options.person is None and options.company is None:
         parser.print_help()
         sys.exit(-1)
 
-    if (options.company is not None):
+    if options.company is not None:
         print 'Fetching result for company "%s"' % (options.company)
         num = int(get_number_of_results(options.company))
 
@@ -105,7 +105,7 @@ def main():
             i = i + 1
         print json.dumps(res)
 
-    if (options.person is not None):
+    if options.person is not None:
         print json.dumps(get_info_on_user(options.person))
 
 if __name__ == '__main__':
