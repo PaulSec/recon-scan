@@ -27,7 +27,7 @@ def main():
 
     (options, args) = parser.parse_args()
 
-    if (options.verbose):
+    if options.verbose:
         VERBOSE_MODE = True
 
     if options.company is None:
@@ -54,7 +54,6 @@ def main():
     display_message('%s mails found' % (len(mails)))
     for mail in mails:
         display_message('"%s" pwned? %s' % (mail, haveibeenpwnedAPI().is_compromised(mail) != []))
-
 
 if __name__ == '__main__':
     main()
