@@ -10,3 +10,15 @@
 [submodule "lib/API-HaveIBeenPwned"]
 	path = lib/API-HaveIBeenPwned
 	url = git@github.com:PaulSec/API-HaveIBeenPwned.git
+[submodule "lib/yatedo"]
+	path = lib/yatedo
+	url = git@github.com:PaulSec/API-Yatedo.git
+[submodule "lib/haveibeenpwnedAPI"]
+	path = lib/haveibeenpwnedAPI
+	url = git@github.com:PaulSec/API-HaveIBeenPwned.git
+[submodule "lib/piplAPI"]
+	path = lib/piplAPI
+	url = git@github.com:PaulSec/API-Pipl.git
+[submodule "lib/emailFormatAPI"]
+	path = lib/emailFormatAPI
+	url = git@github.com:PaulSec/API-Email-Format.git

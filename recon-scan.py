@@ -4,10 +4,10 @@
 import sys
 from optparse import OptionParser
 # external APIs
-from yatedoAPI import YatedoAPI
-from piplAPI import PiplAPI
-from emailFormatAPI import EmailFormatAPI
-from haveibeenpwnedAPI import haveibeenpwnedAPI
+from lib.yatedo.yatedoAPI import YatedoAPI
+from lib.piplAPI.piplAPI import PiplAPI
+from lib.emailFormatAPI.emailFormatAPI import EmailFormatAPI
+from lib.haveibeenpwnedAPI.haveibeenpwnedAPI import haveibeenpwnedAPI
 
 
 VERBOSE_MODE = False
@@ -42,12 +42,10 @@ def main():
     # retrieve info for each employee
     for employee in company['employees']:
         display_message('Retrieving info for user "%s"' % (employee['name']))
-        employee['infos'] = PiplAPI().get_info(employee['name'])
+        employee['profiles'] = PiplAPI().get_info(employee['name'])
          # displaying all profiles we gathered
-        for platform_name in employee['infos']:
-            print 'On %s:' % (platform_name)
-            for profile in employee['infos'][platform_name]:
-                print '\t%s' % (profile)
+        for profile_url in employee['profiles']:
+            print 'On: %s' % (profile_url)
 
     # retrieve emails
     mails = EmailFormatAPI().get(options.company)
