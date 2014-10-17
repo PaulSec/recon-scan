@@ -1,0 +1,12 @@
+[submodule "lib/API-Yatedo"]
+	path = lib/API-Yatedo
+	url = git@github.com:PaulSec/API-Yatedo.git
+[submodule "lib/API-Email-Format"]
+	path = lib/API-Email-Format
+	url = git@github.com:PaulSec/API-Email-Format.git
+[submodule "lib/API-Pipl"]
+	path = lib/API-Pipl
+	url = git@github.com:PaulSec/API-Pipl.git
+[submodule "lib/API-HaveIBeenPwned"]
+	path = lib/API-HaveIBeenPwned
+	url = git@github.com:PaulSec/API-HaveIBeenPwned.git
